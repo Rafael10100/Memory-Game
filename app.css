@@ -1,0 +1,11 @@
+App {
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Adjust for different grid sizes */
+  grid-gap: 10px;
+  margin: 20px auto;
+}
