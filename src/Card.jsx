@@ -1,22 +1,25 @@
-import React from 'react';
-import './Card.css';
+import './Card.css'
 
-const Card = ({ card, handleChoice, flipped, disabled }) => {
-  const handleClick = () => {
-    if (!disabled && !flipped) {
-      handleChoice(card);
-    }
-  };
-
+export default function Card({ card, flipped, matched, onClick }) {
   return (
-    <div className="card">
-      <div className={flipped ? "flipped" : ""}>
-        <img className="front" src={card.src} alt="card front" />
-        <div className="back"></div>
+    <div
+      className={`card-container ${flipped ? 'flipped' : ''} ${matched ? 'matched' : ''}`}
+      onClick={onClick}
+    >
+      <div className="card-inner">
+        <div className="card-back">
+          <div className="pokeball-icon">
+            <div className="pb-top" />
+            <div className="pb-band" />
+            <div className="pb-bottom" />
+            <div className="pb-btn" />
+          </div>
+        </div>
+        <div className="card-front">
+          <img src={card.image} alt={card.name} draggable={false} />
+          <span className="pokemon-name">{card.name}</span>
+        </div>
       </div>
-      <div className="card-inner" onClick={handleClick}></div>
     </div>
-  );
-};
-
-export default Card;
+  )
+}
